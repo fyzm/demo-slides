@@ -12,7 +12,7 @@
 }
 .images >img{
   width: 100%;
-  transform: all 0.3s;
+  transform: all 4s;
   position: absolute;
   top:0;
 }

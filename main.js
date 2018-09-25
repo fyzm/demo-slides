@@ -1,14 +1,35 @@
 
 let n = 1
 初始化()
-setInterval(()=>{
+let timer = setInterval(()=>{
   makeLeave(getImage(n))
   .one('transitionend',(e)=>{
     makeEnter($(e.currentTarget))
   })
   makeCurrent(getImage(n+1))
   n +=1
-},3000)
+},2000)
+
+
+document.addEventListener('visibilitychange',function(e){
+  if(document.hidden){
+    window.clearInterval(timer)
+  }else{
+    timer = setInterval(()=>{
+      makeLeave(getImage(n))
+      .one('transitionend',(e)=>{
+        makeEnter($(e.currentTarget))
+      })
+      makeCurrent(getImage(n+1))
+      n +=1
+    },2000)
+  }
+})
+
+
+
+
+
 
 
 
